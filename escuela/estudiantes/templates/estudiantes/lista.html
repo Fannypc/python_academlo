@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'estudiantes:list' %}" >Estudiantes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'clases:list' %}">Clases</a>
+              </li>
+            </ul>
+            <div class="container-estudiante">
+              {% if estudiantes %}
+                  <div class="col-10">
+                      <ul class="list-group">
+                          {% for estudiante in estudiantes %}
+                            <li class="list-group-item container-list-item">
+                                <span>{{ estudiante.nombre }}</span>
+                                <a href="{% url 'estudiantes:detail' estudiante.id %}" class="btn btn-primary">Detalles</a>
+                            </li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              {% else %}
+                    <p>No existen estudiantes</p>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

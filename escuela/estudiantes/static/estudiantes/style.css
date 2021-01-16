@@ -1,0 +1,29 @@
+.container-estudiante-detalle{
+    display: flex;
+    justify-content: center;
+}
+
+.card-estudiantes{
+    margin:15px;
+}
+
+.container-estudiante{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px
+}
+
+.card-body-estudiantes{
+    text-align: center;
+}
+
+.detalle-item{
+    background-color: #e3e3e3;
+    padding: 10px;
+}
+
+.container-list-item{
+    display: flex;
+    justify-content: space-between;
+}

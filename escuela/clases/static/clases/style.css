@@ -1,0 +1,18 @@
+.h3-clases{
+    margin: 20px 0 30px 0;
+}
+
+.h6-clases{
+    margin: 0 0 30px 0;
+}
+
+.card-clases{
+    width: 18rem;
+    margin:15px;
+}
+
+.container-clases{
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+}

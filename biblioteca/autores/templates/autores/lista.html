@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de autores</title>
+</head>
+<body>
+
+<h1>Lista de autores</h1>
+{% if autores %}
+<ol>
+    {% for autor in autores %}
+        <li><a href="{% url 'autores:detail' autor.id %}">{{ autor.nombre }}</a></li>
+    {% endfor %}
+</ol>
+{% else %}
+    <p>No existen datos</p>
+{% endif %}
+
+<form method="POST" action="{% url 'autores:view' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre">
+    </div>
+    <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="text" class="form-control" name="telefono">
+    </div>
+    <div class="form-group">
+        <label for="correo">Correo</label>
+        <input type="text" class="form-control" name="correo">
+    </div>
+    <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" class="form-control" name="edad">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>

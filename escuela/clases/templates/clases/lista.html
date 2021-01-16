@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'estudiantes:list'%}" >Estudiantes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'clases:list'%}">Clases</a>
+              </li>
+            </ul>
+
+            <div class="container-clases">
+              {% if clases %}
+                  {% for clase in clases %}
+                      <div class="card card-clases">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ clase.nombre }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                Creditos: {{ clase.creditos }}
+                            </h6>
+                            <p class="card-text">{{ clase.descripcion }}</p>
+                            <a href="{% url 'clases:detail' clase.id %}" class="card-link">Estudiantes</a>
+                          </div>
+                      </div>
+                  {% endfor %}
+              {% else %}
+                    <p>No existen clases</p>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

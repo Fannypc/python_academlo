@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'estudiantes:list' %}" >Estudiantes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'clases:list' %}">Clases</a>
+              </li>
+            </ul>
+
+              <div class="container-estudiante-detalle">
+                  <div class="col-md-8">
+                      {% if estudiante %}
+                          <div class="card card-estudiantes">
+                              <div class="card-body card-body-estudiantes">
+                                  <p class="detalle-item"><strong>Nombre:</strong> <br>{{ estudiante.nombre }}</p>
+                                  <p class="detalle-item"><strong>Correo:</strong> <br>{{ estudiante.correo }}</p>
+                                  <p class="detalle-item"><strong>Telefono:</strong> <br>{{ estudiante.telefono }}</p>
+                                  <p class="detalle-item"><strong>Direccion: </strong> <br> {{ estudiante.direccion }}</p>
+                              </div>
+                          </div>
+                      {% else %}
+                            <p>No existe informacion</p>
+                      {% endif %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

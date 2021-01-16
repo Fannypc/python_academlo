@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de autores</title>
+</head>
+<body>
+
+<h1>Lista de autores</h1>
+{% if autores %}
+<ol>
+    {% for autor in autores %}
+        <li><a href="{% url 'autores:detail' autor.id %}">{{ autor.nombre }}</a></li>
+    {% endfor %}
+</ol>
+{% else %}
+    <p>No existen datos</p>
+{% endif %}
+
+</body>
+</html>
